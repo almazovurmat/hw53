@@ -42,7 +42,7 @@ function App() {
 
     return (
         <div className="App">
-            <AddTaskForm getValueFromInput={handleGetValueFromInput} addTaskToList={handleAddButtonClick} />
+            <AddTaskForm getValueFromInput={handleGetValueFromInput} addTaskToList={handleAddButtonClick} inputValue={inputValue}  />
             {
                 todolist.map((task) => {
                     return <Task
