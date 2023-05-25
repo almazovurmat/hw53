@@ -30,6 +30,16 @@ function App() {
         setToDoList(newToDoList);
     };
 
+    const handleAddCrossLine = (id: string) => {
+        const updatedList = todolist.map((task) => {
+            if (task.id === id) {
+                return { ...task, isDone: true };
+            }
+            return task;
+        });
+        setToDoList(updatedList);
+    };
+
     return (
         <div className="App">
             <AddTaskForm getValueFromInput={handleGetValueFromInput} addTaskToList={handleAddButtonClick} />
@@ -39,6 +49,9 @@ function App() {
                         key={task.id}
                         id={task.id}
                         title={task.title}
+                        doneTask={() => {
+                            handleAddCrossLine(task.id)}
+                        }
                         removeTask={() => {
                             handleDeleteTask(task.id)}
                         }
